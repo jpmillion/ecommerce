@@ -15,10 +15,11 @@ class App extends Component {
 
   fetchEtsy = async () => {
     try {
-      console.log(KEY)
       const resp = await fetchJsonp(`https://openapi.etsy.com/v2/listings/active.js?fields=title,description,price&includes=Images&api_key=${KEY}`)
       const listings = await resp.json();
-      this.setState({})
+      this.setState({
+        listings: listings.results
+      })
       // this.setState({
       //   listings: listings.results.map(({title, price, description, Images}, idx) => (<div key={idx}><p>{title}</p><p>{price}</p><p>{description}</p><img src={Images[0].url_170x135} alt={description}></img></div>))
       // })
@@ -49,8 +50,7 @@ class App extends Component {
             
           </a>
         </header>
-        <Listings products={this.fetchEtsy()}/>
-        {this.state.listings}
+        <Listings products={this.state.listings}/>
       </div>
     );
   }

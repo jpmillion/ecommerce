@@ -3,12 +3,12 @@ import Listing from './Listing';
 
 const Listings = (props) => {
 
-    const listings = props.products.results.map((result, idx) => (<Listing key={idx} { ...result }/>))
+    const listings = props.products.map((product, idx) => (<Listing key={idx} { ...product }/>))
 
     return (
-        <Listing>
+        <div>
             {listings}
-        </Listing>
+        </div>
     )
 }
 
