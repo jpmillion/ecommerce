@@ -15,7 +15,7 @@ class App extends Component {
 
   fetchEtsy = async () => {
     try {
-      const resp = await fetchJsonp(`https://openapi.etsy.com/v2/listings/active.js?fields=title,description,price&includes=Images&api_key=${KEY}`)
+      const resp = await fetchJsonp(`https://openapi.etsy.com/v2/listings/active.js?fields=title,description,price&includes=MainImage&api_key=${KEY}`)
       const listings = await resp.json();
       this.setState({
         listings: listings.results

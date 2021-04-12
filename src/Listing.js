@@ -4,7 +4,7 @@ const Listing = (props) => {
     return (
         <div>
             <p>{props.title}</p>
-            <img src={props.Images[0].url_170x135} alt={props.title} />
+            <img src={props.MainImage.url_170x135} alt={props.title} />
             <p>{props.price}</p><br/>
         </div>
     )
