@@ -3,7 +3,7 @@ import Listing from './Listing';
 
 const Listings = (props) => {
 
-    const listings = props.products.map((product, idx) => (<Listing key={idx} { ...product }/>))
+    const listings = props.products.map((product) => (<Listing key={product.listing_id} { ...product }/>))
 
     return (
         <div>
