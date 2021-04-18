@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchListings } from './actions/fetchListings'
 import Listings from './listingComponents/Presentational/Listings';
+import { NavLink } from 'react-router-dom';
 
 class ListingsContainer extends Component {
   
@@ -15,6 +16,7 @@ class ListingsContainer extends Component {
     
     return (
       <div>
+        <NavLink to='/'>Home</NavLink>
         <Listings products={this.props.listings}/>
       </div>
     );
