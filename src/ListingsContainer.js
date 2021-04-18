@@ -3,7 +3,7 @@ import './App.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchListings } from './actions/fetchListings'
-import Listings from './ListingComponents/Presentational/Listings';
+import Listings from './listingComponents/Presentational/Listings';
 
 class ListingsContainer extends Component {
   
