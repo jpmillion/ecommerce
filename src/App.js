@@ -21,9 +21,6 @@ class App extends Component {
           </Route>
         </Switch>
       </Router>
-      // <div className="App">
-      //   <ListingsContainer />
-      // </div>
     );
   }
 }
