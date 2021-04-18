@@ -1,8 +1,8 @@
 
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
-import ListingsContainer from './ListingComponents/ListingsContainer';
+import ListingsContainer from './ListingsContainer';
 
 
 class App extends Component {

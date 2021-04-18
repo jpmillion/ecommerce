@@ -2,7 +2,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import fetchJsonp from 'fetch-jsonp';
-import Listings from './Presentational/Listings';
+import Listings from './ListingComponents/Presentational/Listings';
 
 
 const KEY = process.env.REACT_APP_ETSY_API_KEY;
