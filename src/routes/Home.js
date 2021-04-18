@@ -6,7 +6,8 @@ export class Home extends PureComponent {
         return (
             <div>
                 <NavLink to='/listings'>Listings</NavLink>
-                home
+                <NavLink to='/login'>Log In</NavLink>
+                <NavLink to='/register'>Register</NavLink>
             </div>
         )
     }

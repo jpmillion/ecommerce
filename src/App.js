@@ -12,12 +12,15 @@ class App extends Component {
   render() {
     
     return (
-      <Router>
-        <Switch>
-          <Route path='/listings' component={ListingsContainer}/>
-          <Route path='/' component={Home}/>
-        </Switch>
-      </Router>
+      <div> 
+        <h1>Ecommerce</h1> 
+        <Router>
+          <Switch>
+            <Route path='/listings' component={ListingsContainer}/>
+            <Route path='/' component={Home}/>
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }
