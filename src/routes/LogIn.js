@@ -1,6 +1,8 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { fetchCustomer } from '../actions/fetchCustomer'
+import { fetchCustomer } from '../actions/fetchCustomer';
+import { Redirect } from 'react-router-dom';
+import LogInForm from '../forms/LogInForm';
 
 class LogIn extends PureComponent {
 
@@ -24,17 +26,26 @@ class LogIn extends PureComponent {
         })
     }
 
+    redirectOnLogIn = () => {
+        if (this.props.loggedIn) {
+            return <Redirect to='/'/>
+        }
+        return (
+            <LogInForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} email={this.state.email} password={this.state.password} />
+        )
+    }
+
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                Email: 
-               <input onChange={this.handleChange} type='text' name='email' value={this.state.email} /><br></br>
-               Password: 
-               <input onChange={this.handleChange} type='password' name='password' value={this.state.password} /><br></br>
-               <input type='submit' value='submit'/> 
-            </form>
+            this.redirectOnLogIn()
         )
     }
 }
 
-export default connect(null, { fetchCustomer })(LogIn)
+const mapStateToProps = state => {
+    return {
+        loggedIn: state.logIn.loggedIn
+    }
+}
+
+export default connect(mapStateToProps, { fetchCustomer })(LogIn)
