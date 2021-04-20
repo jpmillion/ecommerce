@@ -7,7 +7,7 @@ const Navigation = props => {
     if (props.loggedIn) {
         return (
             <NavBar>
-                <Button href='/'>Log Out</Button>
+                <Button href='/' onClick={props.logOut}>Log Out</Button>
             </NavBar>
         )
     }

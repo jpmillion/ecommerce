@@ -7,6 +7,12 @@ const logInReducer = (state = {customer: {}, loggedIn: false}, action) => {
                 customer: action.customer,
                 loggedIn: true
             }
+        case 'LOG_OUT':
+            return {
+                ...state,
+                customer: {},
+                loggedIn: false
+            }
         default:
             return state;
     }

@@ -5,10 +5,14 @@ import Navigation from '../Navigation';
 
 export class Home extends PureComponent {
 
+    logOut = () => {
+        this.props.dispatch({type: 'LOG_OUT'})
+    }
+
     render() {
         return (
             <div>
-                <Navigation loggedIn={this.props.loggedIn} />
+                <Navigation loggedIn={this.props.loggedIn} logOut={this.logOut} />
                 <CustomerContainer />
             </div>
         )
