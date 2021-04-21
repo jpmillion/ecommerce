@@ -27,9 +27,9 @@ export class Home extends PureComponent {
 
 const mapStateToProps = state => {
     return {
-        loggedIn: state.logIn.loggedIn,
-        cartItems: state.logIn.customer.attributes.cart_items,
-        firstName: state.logIn.customer.attributes.first_name
+        loggedIn: state.logIn,
+        cartItems: state.cartItems,
+        firstName: state.customer.first_name
     }
 }
 
