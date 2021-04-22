@@ -1,5 +1,5 @@
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import { NavLink } from 'react-router-dom';
 
 const Cart = props => {
     
@@ -12,7 +12,7 @@ const Cart = props => {
             <Card.Text>
                 {text}
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <NavLink to='/trendingListings'>Search Trending Listings</NavLink>
           </Card.Body>
         </Card>
     )

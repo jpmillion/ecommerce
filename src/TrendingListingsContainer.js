@@ -1,14 +1,14 @@
 import './App.css';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { fetchTrendingListings } from './actions/fetchTrendingListings'
 import Listings from './listingComponents/Presentational/Listings';
 import { NavLink } from 'react-router-dom';
 
-class ListingsContainer extends Component {
+class ListingsContainer extends PureComponent {
   
   componentDidMount() {
-    this.props.fetchTrendingListings();
+    !this.props.trendingListings.length && this.props.fetchTrendingListings();
   }
 
   render() {

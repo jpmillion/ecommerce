@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import { NavLink } from 'react-router-dom';
+
 
 const TrendingListings = props => {
 
@@ -10,7 +11,7 @@ const TrendingListings = props => {
             <Card.Text>
                 
             </Card.Text>
-            <Button variant="primary" href='/trendingListings'>Trending Listings</Button>
+            <NavLink to='/trendingListings'>Search Trending Listings</NavLink>
           </Card.Body>
         </Card>
     )
