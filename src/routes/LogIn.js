@@ -44,7 +44,7 @@ class LogIn extends PureComponent {
 
 const mapStateToProps = state => {
     return {
-        loggedIn: state.logIn.loggedIn
+        loggedIn: state.logIn
     }
 }
 

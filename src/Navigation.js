@@ -1,13 +1,13 @@
 import React from 'react';
 import NavBar from 'react-bootstrap/NavBar';
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom';
 
 const Navigation = props => {
     if (props.loggedIn) {
         return (
             <NavBar>
-                <Button href='/' onClick={props.logOut}>Log Out</Button>
+                <NavLink to='/' onClick={props.logOut}>Log Out</NavLink>
             </NavBar>
         )
     }

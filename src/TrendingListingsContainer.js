@@ -1,15 +1,14 @@
-
 import './App.css';
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { fetchListings } from './actions/fetchListings'
+import { fetchTrendingListings } from './actions/fetchTrendingListings'
 import Listings from './listingComponents/Presentational/Listings';
 import { NavLink } from 'react-router-dom';
 
 class ListingsContainer extends PureComponent {
   
   componentDidMount() {
-    !this.props.listings.length && this.props.fetchListings();
+    !this.props.trendingListings.length && this.props.fetchTrendingListings();
   }
 
   render() {
@@ -17,7 +16,7 @@ class ListingsContainer extends PureComponent {
     return (
       <div>
         <NavLink to='/'>Home</NavLink>
-        <Listings products={this.props.listings}/>
+        <Listings products={this.props.trendingListings}/>
       </div>
     );
   }
@@ -25,9 +24,9 @@ class ListingsContainer extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    listings: state.listings,
+    trendingListings: state.trendingListings,
     loading: state.loading
   }
 }
 
-export default connect(mapStateToProps, { fetchListings })(ListingsContainer);
+export default connect(mapStateToProps, { fetchTrendingListings })(ListingsContainer);

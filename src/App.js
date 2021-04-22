@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ListingsContainer from './ListingsContainer';
 import Home from './routes/Home';
 import LogIn from './routes/LogIn';
+import TrendingListingsContainer from './TrendingListingsContainer';
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ class App extends Component {
         <h1>Ecommerce</h1> 
         <Router>
           <Switch>
+            <Route path='/trendingListings' component={TrendingListingsContainer} />
             <Route path='/listings' component={ListingsContainer}/>
             <Route path='/login' component={LogIn}/>
             <Route path='/' component={Home}/>
