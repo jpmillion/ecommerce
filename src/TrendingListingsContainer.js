@@ -14,7 +14,7 @@ class ListingsContainer extends PureComponent {
   }
 
   displayCart = () => {
-    if (this.props.loggedIn) return <Cart cartItems={this.props.cartItems} firstName={this.props.firstName} />
+    if (this.props.loggedIn) return <Cart cartItems={this.props.cartItems} firstName={this.props.firstName} total={this.props.cartTotal}/>
   }
 
   render() {
@@ -36,7 +36,8 @@ const mapStateToProps = state => {
     loggedIn: state.logIn,
     cartItems: state.cartItems,
     firstName: state.customer.first_name,
-    cartId: state.cart.id
+    cartId: state.cart.id,
+    cartTotal: state.cart.total
   }
 }
 
