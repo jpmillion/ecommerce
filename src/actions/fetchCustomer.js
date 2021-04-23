@@ -1,5 +1,4 @@
 export const fetchCustomer = (email) => {
-    console.log('fetchCustomer')
     return dispatch => {
         fetch('http://localhost:3001/api/v1/sessions', {
             method: 'post',
