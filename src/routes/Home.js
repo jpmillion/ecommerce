@@ -11,7 +11,7 @@ export class Home extends PureComponent {
     }
 
     displayCart = () => {
-        if (this.props.loggedIn) return <Cart cartItems={this.props.cartItems} firstName={this.props.firstName} />
+        if (this.props.loggedIn) return <Cart cartItems={this.props.cartItems} firstName={this.props.firstName} total={this.props.cartTotal} />
     }
 
     render() {
@@ -29,7 +29,8 @@ const mapStateToProps = state => {
     return {
         loggedIn: state.logIn,
         cartItems: state.cartItems,
-        firstName: state.customer.first_name
+        firstName: state.customer.first_name,
+        cartTotal: state.cart.total
     }
 }
 

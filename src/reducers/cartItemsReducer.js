@@ -6,6 +6,9 @@ const customerReducer = (state = [], action) => {
         case 'LOG_OUT':
             return [];
 
+        case 'ADD_CART_ITEM':
+            return [...state, action.cartItem]
+
         default:
             return state;
     }
