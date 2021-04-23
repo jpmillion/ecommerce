@@ -3,11 +3,18 @@ const cartReducer = (state = {}, action) => {
         case 'LOG_IN':
             return {
                 ...state,
-                total: action.customer.attributes.cart.total
+                total: action.customer.attributes.cart.total,
+                id: action.customer.attributes.cart.id
             };
 
         case 'LOG_OUT':
             return {};
+
+        case 'ADD_CART_ITEM':
+            return {
+                ...state,
+                total: action.total
+            }
 
         default:
             return state;
