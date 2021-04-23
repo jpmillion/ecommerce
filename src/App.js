@@ -7,6 +7,7 @@ import ListingsContainer from './ListingsContainer';
 import Home from './routes/Home';
 import LogIn from './routes/LogIn';
 import TrendingListingsContainer from './TrendingListingsContainer';
+import ViewCart from './ViewCart';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
           <Switch>
             <Route path='/trendingListings' component={TrendingListingsContainer} />
             <Route path='/listings' component={ListingsContainer}/>
+            <Route path='/cart' component={ViewCart}/>
             <Route path='/login' component={LogIn}/>
             <Route path='/' component={Home}/>
           </Switch>

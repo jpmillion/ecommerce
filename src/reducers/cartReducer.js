@@ -16,6 +16,12 @@ const cartReducer = (state = {}, action) => {
                 total: action.total
             }
 
+        case 'DELETE_CART_ITEM':
+            return {
+                ...state,
+                total: action.total
+            }
+
         default:
             return state;
     }

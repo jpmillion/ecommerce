@@ -1,4 +1,4 @@
-const customerReducer = (state = [], action) => {
+const cartItemReducer = (state = [], action) => {
     switch (action.type) {
         case 'LOG_IN':
             return [...state, ...action.customer.attributes.cart_items]
@@ -7,11 +7,16 @@ const customerReducer = (state = [], action) => {
             return [];
 
         case 'ADD_CART_ITEM':
-            return [...state, action.cartItem]
+            action.cartItem.id = action.cartItemId;
+            return [...state, action.cartItem];
+
+        case 'DELETE_CART_ITEM':
+            const cartItems = state.filter(item => item.id !== action.cartItemId)
+            return cartItems;
 
         default:
             return state;
     }
 }
 
-export default customerReducer;
+export default cartItemReducer;

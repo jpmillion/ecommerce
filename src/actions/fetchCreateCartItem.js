@@ -1,4 +1,4 @@
-export const fetchCreateCartItem = (cartId, quantity, price) => {
+export const fetchCreateCartItem = (cartId, quantity, price, title, description, image) => {
     return dispatch => {
         fetch(`http://localhost:3001/api/v1/carts/${cartId}/cart_items`, {
             method: 'post',
@@ -7,11 +7,14 @@ export const fetchCreateCartItem = (cartId, quantity, price) => {
             },
             body: JSON.stringify({
                 quantity,
-                price
+                price,
+                title, 
+                description,
+                image
             })
         })
         .then(resp => resp.json())
-        .then(json => dispatch({type: 'ADD_CART_ITEM', cartItem: json.data.attributes, total: json.included[0].attributes.total}))
+        .then(json => dispatch({type: 'ADD_CART_ITEM', cartItem: json.data.attributes, cartItemId: json.data.id, total: json.included[0].attributes.total}))
         .catch(e => window.alert(e.messages))
     }
 }
