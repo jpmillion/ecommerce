@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import Button from 'react-bootstrap/esm/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
 import { connect } from 'react-redux';
 import { deleteCartItem } from './actions/deleteCartItem';
+import { updateCartItemQuantity } from './actions/updateCartItemQuantity';
 
 class ViewCart extends PureComponent {
 
@@ -10,7 +12,22 @@ class ViewCart extends PureComponent {
             <p>{item.title}</p>
             <img src={item.image} alt={item.title}></img>
             <p>{item.description}</p>
-            <p>{item.price} <Button onClick={e => this.props.deleteCartItem(this.props.cart.id, item.id)}>Remove Item</Button></p>
+            <p>{item.price} <Button onClick={e => this.props.deleteCartItem(this.props.cart.id, item.id)}>Remove Item</Button>
+            <ListGroup horizontal >
+                <ListGroup.Item >
+                    Quantitiy
+                </ListGroup.Item>
+                <ListGroup.Item>
+                    {item.quantity}
+                </ListGroup.Item>
+                <ListGroup.Item onClick={() => this.props.updateCartItemQuantity(this.props.cart.id, item.id, ++item.quantity)}>
+                    +
+                </ListGroup.Item>
+                <ListGroup.Item disabled={item.quantity <= 1} onClick={() => this.props.updateCartItemQuantity(this.props.cart.id, item.id, --item.quantity)}>
+                    -
+                </ListGroup.Item>
+            </ListGroup>
+            </p>
         </div>
     ))
 
@@ -37,4 +54,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, { deleteCartItem })(ViewCart)
+export default connect(mapStateToProps, { deleteCartItem, updateCartItemQuantity })(ViewCart)

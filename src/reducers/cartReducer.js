@@ -22,6 +22,12 @@ const cartReducer = (state = {}, action) => {
                 total: action.total
             }
 
+        case 'UPDATE_CART_ITEM_QUANTITY':
+            return {
+                ...state,
+                total: action.total
+            }
+
         default:
             return state;
     }

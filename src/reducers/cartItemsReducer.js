@@ -14,6 +14,10 @@ const cartItemReducer = (state = [], action) => {
             const cartItems = state.filter(item => item.id !== action.cartItemId)
             return cartItems;
 
+        case 'UPDATE_CART_ITEM_QUANTITY':
+            action.cartItem.id = action.cartItemId;
+            return [...state.filter(item => item.id !== action.cartItemId), action.cartItem]
+
         default:
             return state;
     }
