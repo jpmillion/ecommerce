@@ -8,22 +8,20 @@ export const createOrderAndItems = (customerId, cart, cartItems) => {
             body: JSON.stringify({ ...cart, order_items: cartItems })
         })
         .then(resp => resp.json())
-        .then(json => dispatch({type: 'MAKE_PURCHASE', order: json.data.attributes, id: json.data.id}))
+        .then(json => dispatch({type: 'CREATE_ORDER_AND_ITEMS', order: json.data.attributes, id: json.data.id}))
         .catch(e => window.alert(e.message))
     }
 }
 
-export const createOrderItems = (orderId, cartItems) => {
+export const emptyCart = (cartId) => {
     return dispatch => {
-        fetch(`http://localhost:3001/api/v1/orders/${orderId}/order_items`, {
-            method: 'POST',
+        fetch(`http://localhost:3001/api/v1/carts/${cartId}`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ ...cartItems })
+            }
         })
-        .then(resp => resp.json())
-        .then(j => console.log(j))
-        .catch(e => window.alert(e))
+        .then(dispatch({type: 'EMPTY_CART'}))
+        .catch(e => window.alert(e.message))
     }
 }

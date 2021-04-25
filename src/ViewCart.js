@@ -4,13 +4,14 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { connect } from 'react-redux';
 import { deleteCartItem } from './actions/deleteCartItem';
 import { updateCartItemQuantity } from './actions/updateCartItemQuantity';
-import { createOrderAndItems } from './actions/makePurchase';
+import { createOrderAndItems, emptyCart } from './actions/makePurchase';
 
 
 class ViewCart extends PureComponent {
 
     makePurchase = () => {
         this.props.createOrderAndItems(this.props.customer.id, this.props.cart, this.props.cartItems);
+        this.props.emptyCart(this.props.cart.id)
     }
 
     items = () => this.props.cartItems.map(item => (
@@ -64,5 +65,6 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, { 
     deleteCartItem, 
     updateCartItemQuantity,
-    createOrderAndItems
+    createOrderAndItems,
+    emptyCart
  })(ViewCart)

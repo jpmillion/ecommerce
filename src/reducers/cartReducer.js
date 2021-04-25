@@ -28,7 +28,7 @@ const cartReducer = (state = {}, action) => {
                 total: action.total
             }
         
-        case 'MAKE_PURCHASE':
+        case 'EMPTY_CART':
             return {
                 ...state,
                 total: 0

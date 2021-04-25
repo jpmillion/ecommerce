@@ -6,7 +6,7 @@ const orderItemsReducer = (state = [], action) => {
         case 'LOG_OUT':
             return []
 
-        case 'MAKE_PURCHASE':
+        case 'CREATE_ORDER_AND_ITEMS':
             return [...state, ...action.order.order_items]
     
         default:
