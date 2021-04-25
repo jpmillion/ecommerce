@@ -27,7 +27,12 @@ const cartReducer = (state = {}, action) => {
                 ...state,
                 total: action.total
             }
-
+        
+        case 'MAKE_PURCHASE':
+            return {
+                ...state,
+                total: 0
+            }
         default:
             return state;
     }

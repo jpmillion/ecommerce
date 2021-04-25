@@ -3,7 +3,8 @@ const customerReducer = (state = {}, action) => {
         case 'LOG_IN':
             return {
                 ...state,
-                first_name: action.customer.attributes.first_name
+                first_name: action.customer.attributes.first_name,
+                id: action.customer.id
             };
 
         case 'LOG_OUT':
