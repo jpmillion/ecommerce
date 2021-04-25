@@ -5,6 +5,8 @@ import customerReducer from "./customerReducer";
 import cartReducer from "./cartReducer";
 import cartItemsReducer from './cartItemsReducer';
 import trendingListingsReducer from "./trendingListingsReducer";
+import ordersReducer from "./ordersReducer";
+import orderItemsReducer from "./orderItemsReducer";
 
 const rootReducer = combineReducers({
     logIn: logInReducer,
@@ -12,7 +14,9 @@ const rootReducer = combineReducers({
     listings: listingsReducer,
     cart: cartReducer,
     cartItems: cartItemsReducer,
-    trendingListings: trendingListingsReducer
+    trendingListings: trendingListingsReducer,
+    orders: ordersReducer,
+    orderItems: orderItemsReducer
 })
 
 export default rootReducer;

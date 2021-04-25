@@ -4,8 +4,15 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { connect } from 'react-redux';
 import { deleteCartItem } from './actions/deleteCartItem';
 import { updateCartItemQuantity } from './actions/updateCartItemQuantity';
+import { createOrderAndItems, emptyCart } from './actions/makePurchase';
+
 
 class ViewCart extends PureComponent {
+
+    makePurchase = () => {
+        this.props.createOrderAndItems(this.props.customer.id, this.props.cart, this.props.cartItems);
+        this.props.emptyCart(this.props.cart.id)
+    }
 
     items = () => this.props.cartItems.map(item => (
         <div key={item.id}>
@@ -40,7 +47,7 @@ class ViewCart extends PureComponent {
         return (
             <div>
                 <h1>{this.props.customer.first_name}'s Cart</h1>
-                <h2>Total {this.currency.format(this.props.cart.total)}</h2>
+                <h2>Total {this.currency.format(this.props.cart.total)} <Button onClick={this.makePurchase}>Purchase</Button></h2>
                 {this.items()}
             </div>
         )
@@ -50,8 +57,14 @@ class ViewCart extends PureComponent {
 const mapStateToProps = (state) => ({
     cartItems: state.cartItems,
     cart: state.cart,
-    customer: state.customer
+    customer: state.customer,
+    order: state.order
 })
 
 
-export default connect(mapStateToProps, { deleteCartItem, updateCartItemQuantity })(ViewCart)
+export default connect(mapStateToProps, { 
+    deleteCartItem, 
+    updateCartItemQuantity,
+    createOrderAndItems,
+    emptyCart
+ })(ViewCart)

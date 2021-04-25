@@ -27,7 +27,12 @@ const cartReducer = (state = {}, action) => {
                 ...state,
                 total: action.total
             }
-
+        
+        case 'EMPTY_CART':
+            return {
+                ...state,
+                total: 0
+            }
         default:
             return state;
     }

@@ -18,6 +18,9 @@ const cartItemReducer = (state = [], action) => {
             action.cartItem.id = action.cartItemId;
             return [...state.filter(item => item.id !== action.cartItemId), action.cartItem]
 
+        case 'EMPTY_CART':
+            return []
+
         default:
             return state;
     }
