@@ -10,6 +10,9 @@ const customerReducer = (state = {}, action) => {
         case 'LOG_OUT':
             return {};
 
+        case 'REGISTER':
+            return action.customer
+
         default:
             return state;
     }

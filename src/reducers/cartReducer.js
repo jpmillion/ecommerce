@@ -33,6 +33,10 @@ const cartReducer = (state = {}, action) => {
                 ...state,
                 total: 0
             }
+
+        case 'REGISTER':
+            return action.cart
+
         default:
             return state;
     }

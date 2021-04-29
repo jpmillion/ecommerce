@@ -3,6 +3,8 @@ import React from 'react'
 const LogInForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
+            FirstName:
+            <input onChange={props.handleChange} type='text' name='firstName' value={props.firstName} /><br></br>
             Email: 
             <input onChange={props.handleChange} type='text' name='email' value={props.email} /><br></br>
             Password: 

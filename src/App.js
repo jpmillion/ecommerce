@@ -8,6 +8,7 @@ import Home from './routes/Home';
 import LogIn from './routes/LogIn';
 import TrendingListingsContainer from './TrendingListingsContainer';
 import ViewCart from './ViewCart';
+import RegisterForm from './customer/RegisterForm';
 
 class App extends Component {
 
@@ -22,6 +23,7 @@ class App extends Component {
             <Route path='/listings' component={ListingsContainer}/>
             <Route path='/cart' component={ViewCart}/>
             <Route path='/login' component={LogIn}/>
+            <Route path='/register' component={RegisterForm}/>
             <Route path='/' component={Home}/>
           </Switch>
         </Router>
