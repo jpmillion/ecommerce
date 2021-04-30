@@ -5,24 +5,16 @@ import { fetchTrendingListings } from './actions/fetchTrendingListings';
 import { fetchCreateCartItem } from './actions/fetchCreateCartItem';
 import Listings from './listingComponents/Presentational/Listings';
 import { NavLink } from 'react-router-dom';
-import Cart from './Cart';
+import { displayCart } from './helpers';
 
 class ListingsContainer extends PureComponent {
-  
-  componentDidMount() {
-    !this.props.trendingListings.length && this.props.fetchTrendingListings();
-  }
-
-  displayCart = () => {
-    if (this.props.loggedIn) return <Cart cartItems={this.props.cartItems} firstName={this.props.firstName} total={this.props.cartTotal}/>
-  }
 
   render() {
     
     return (
       <div>
         <NavLink to='/'>Home</NavLink>
-        {this.displayCart()}
+        {displayCart()}
         <Listings products={this.props.trendingListings} addToCart={this.props.fetchCreateCartItem} cartId={this.props.cartId}/>
       </div>
     );

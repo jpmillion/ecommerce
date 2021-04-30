@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import Cart from '../Cart';
 import CustomerContainer from '../customer/CustomerContainer';
+import { displayCart } from '../helpers';
 import Navigation from '../Navigation';
 
 export class Home extends PureComponent {
@@ -11,15 +11,11 @@ export class Home extends PureComponent {
         this.props.dispatch({type: 'LOG_OUT'})
     }
 
-    displayCart = () => {
-        if (this.props.loggedIn) return <Cart cartItems={this.props.cartItems} firstName={this.props.firstName} total={this.props.cartTotal} />
-    }
-
     render() {
         return (
             <div>
                 <Navigation loggedIn={this.props.loggedIn} logOut={this.logOut} />
-                {this.displayCart()}
+                <div>{displayCart()}</div>
                 <CustomerContainer />
             </div>
         )

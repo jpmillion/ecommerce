@@ -18,7 +18,6 @@ class LogIn extends PureComponent {
     }
 
     handleSubmit = e => {
-        console.log('handle submit')
         e.preventDefault();
         this.props.fetchCustomer(this.state.email, this.state.password);
         this.setState({

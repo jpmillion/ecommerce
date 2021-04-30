@@ -6,17 +6,19 @@ import { NavLink } from 'react-router-dom';
 const Navigation = props => {
     if (props.loggedIn) {
         return (
-            <NavBar>
-                <NavLink to='/' onClick={props.logOut}>Log Out</NavLink>
+            <NavBar className='bg-secondary justify-content-center' style={{padding: '10px', fontSize: '2em'}} >
+                <NavLink to='/' onClick={props.logOut} className='text-light'>Log Out</NavLink>
             </NavBar>
         )
     }
     return (
-        <NavBar variant='dark'> 
-            <NavLink to='/listings'>Listings</NavLink>
-            <NavLink to='/login'>Log In</NavLink>
-            <NavLink to='/register'>Register</NavLink>
-        </NavBar>
+        <div className='row bg-secondary text-center' style={{padding: '10px', fontSize: '2em'}}> 
+            <div className="col-sm-3"></div>
+            <div className="col-sm-2"><NavLink className='text-light' to='/listings'>Listings</NavLink></div>
+            <div className="col-sm-2"><NavLink className='text-light' to='/login'>Log In</NavLink></div>
+            <div className="col-sm-2"><NavLink className='text-light' to='/register'>Register</NavLink></div>
+            <div className="col-sm-3"></div>
+        </div>
     )
 }
 

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import { displayNumOfCartItems } from './helpers';
+import { connect } from 'react-redux';
 
 const Cart = props => {
     const currency = new Intl.NumberFormat('en-US', {
@@ -13,11 +14,11 @@ const Cart = props => {
     const text = () => {
       if (props.cartItems.length) {
         return (
-          <ListGroup>
-            <ListGroupItem>Total {currency.format(props.total)}</ListGroupItem>
-            <ListGroupItem>There are currently {displayNumOfCartItems(props.cartItems)} item(s) in your cart</ListGroupItem>
-            <ListGroupItem><NavLink to='/cart'>View Cart</NavLink></ListGroupItem>
-          </ListGroup>
+            <ListGroup>
+              <ListGroupItem>Total {currency.format(props.total)}</ListGroupItem>
+              <ListGroupItem>There are currently {displayNumOfCartItems(props.cartItems)} item(s) in your cart</ListGroupItem>
+              <ListGroupItem><NavLink to='/cart'>View Cart</NavLink></ListGroupItem>
+            </ListGroup>
          )
       } else { 
         return (
@@ -27,7 +28,7 @@ const Cart = props => {
     }
 
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '18rem', float: 'right' }}>
           <Card.Body>
             <Card.Title>{props.firstName}'s Shopping Cart</Card.Title>
             {text()} 
@@ -36,4 +37,12 @@ const Cart = props => {
     )
 }
 
-export default Cart
+const mapStateToProps = state => {
+  return {
+    firstName: state.customer.first_name,
+    cartItems: state.cartItems,
+    total: state.cart.total
+  }
+}
+
+export default connect(mapStateToProps)(Cart)

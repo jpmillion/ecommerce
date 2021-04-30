@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.jumbo {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 7em;
+  padding: 75px;
+  text-shadow: 4px 4px whitesmoke;
+}
+

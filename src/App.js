@@ -11,18 +11,22 @@ import ViewCart from './ViewCart';
 import RegisterForm from './customer/RegisterForm';
 import { authenticate } from './actions/fetchCustomer';
 import { connect } from 'react-redux';
+import { fetchTrendingListings } from './actions/fetchTrendingListings';
+import { fetchListings } from './actions/fetchListings';
 
 class App extends Component {
 
   componentDidMount() {
-    if (sessionStorage.getItem('token')) this.props.authenticate(sessionStorage.getItem('token'))
+    if (sessionStorage.token) this.props.authenticate();
+    !this.props.listings.length && this.props.fetchListings();
+    !this.props.trendingListings.length && this.props.fetchTrendingListings();
   }
 
   render() {
     
     return (
       <div> 
-        <h1>Ecommerce</h1> 
+        <h1 className='jumbo text-center text-secondary'>Ecommerce</h1> 
         <Router>
           <Switch>
             <Route path='/trendingListings' component={TrendingListingsContainer} />
@@ -38,4 +42,15 @@ class App extends Component {
   }
 }
 
-export default connect(null, { authenticate })(App);
+const mapStateToProps = state => {
+  return {
+    listings: state.listings,
+    trendingListings: state.trendingListings,
+  }
+}
+
+export default connect(mapStateToProps, { 
+  authenticate,
+  fetchListings,
+  fetchTrendingListings
+})(App);

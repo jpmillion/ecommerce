@@ -10,7 +10,12 @@ export const updateCartItemQuantity = (cartId, cartItemId, quantity) => {
             })
         })
         .then(resp => resp.json())
-        .then(json => dispatch({type: 'UPDATE_CART_ITEM_QUANTITY', cartItem: json.data.attributes, cartItemId, total: json.included[0].attributes.total}))
+        .then(json => dispatch({
+            type: 'UPDATE_CART_ITEM_QUANTITY', 
+            cartItem: json.data.attributes, 
+            cartItemId, 
+            total: json.included[0].attributes.total
+        }))
         .catch(e => window.alert(e.messages))
     }
 }
