@@ -13,7 +13,8 @@ export const fetchCustomer = (email, password) => {
             })
         })
         .then(resp => resp.json())
-        .then(json => dispatch({type: 'LOG_IN', customer: json.data}))
+        .then(j => logIn(j, dispatch))
+        //.then(json => dispatch({type: 'LOG_IN', customer: { id: json.customer.data.id, ...json.customer.data.attributes }}))
         .catch(e => window.alert(e.messages))
     }
 }
@@ -34,9 +35,32 @@ export const register = (email, password_digest, first_name) => {
         })
         .then(resp => resp.json())
         .then(json => {
-            sessionStorage.setItem('jwt', json.jwt)
+            sessionStorage.setItem('token', json.token)
             dispatch({type: 'REGISTER', customer: {id: json.customer.data.id, ...json.customer.data.attributes}, cart: {id: json.customer.included[0].id, ...json.customer.included[0].attributes}})
         })
         .catch(e => window.alert(e.errors))
     }
+}
+
+export const authenticate = token => {
+    return dispatch => {
+        fetch('http://localhost:3001/api/v1/customers/authenticate', { headers: { token } })
+        .then(r => r.json())
+        .then(j => logIn(j, dispatch))
+        .catch(e => window.alert(e))
+    }
+}
+
+const logIn = (j, dispatch) => {
+    if (!sessionStorage.getItem('token')) sessionStorage.setItem('token', j.token);
+    const { id } = j.customer.data
+    const { first_name, last_name, email, cart, cart_items, orders, order_items } = j.customer.data.attributes
+    dispatch({
+        type: 'LOG_IN',
+        customer: { id, first_name, last_name, email },
+        cart,
+        cart_items,
+        orders,
+        order_items
+    })
 }

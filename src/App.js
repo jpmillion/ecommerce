@@ -9,8 +9,14 @@ import LogIn from './routes/LogIn';
 import TrendingListingsContainer from './TrendingListingsContainer';
 import ViewCart from './ViewCart';
 import RegisterForm from './customer/RegisterForm';
+import { authenticate } from './actions/fetchCustomer';
+import { connect } from 'react-redux';
 
 class App extends Component {
+
+  componentDidMount() {
+    if (sessionStorage.getItem('token')) this.props.authenticate(sessionStorage.getItem('token'))
+  }
 
   render() {
     
@@ -32,4 +38,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, { authenticate })(App);
