@@ -7,10 +7,6 @@ import Listings from './listingComponents/Presentational/Listings';
 import { NavLink } from 'react-router-dom';
 
 class ListingsContainer extends PureComponent {
-  
-  componentDidMount() {
-    !this.props.listings.length && this.props.fetchListings();
-  }
 
   render() {
     
