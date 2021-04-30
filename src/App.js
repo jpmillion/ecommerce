@@ -8,8 +8,15 @@ import Home from './routes/Home';
 import LogIn from './routes/LogIn';
 import TrendingListingsContainer from './TrendingListingsContainer';
 import ViewCart from './ViewCart';
+import RegisterForm from './customer/RegisterForm';
+import { authenticate } from './actions/fetchCustomer';
+import { connect } from 'react-redux';
 
 class App extends Component {
+
+  componentDidMount() {
+    if (sessionStorage.getItem('token')) this.props.authenticate(sessionStorage.getItem('token'))
+  }
 
   render() {
     
@@ -22,6 +29,7 @@ class App extends Component {
             <Route path='/listings' component={ListingsContainer}/>
             <Route path='/cart' component={ViewCart}/>
             <Route path='/login' component={LogIn}/>
+            <Route path='/register' component={RegisterForm}/>
             <Route path='/' component={Home}/>
           </Switch>
         </Router>
@@ -30,4 +38,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, { authenticate })(App);

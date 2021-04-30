@@ -1,7 +1,7 @@
 const orderItemsReducer = (state = [], action) => {
     switch (action.type) {
         case 'LOG_IN':
-            return action.customer.attributes.order_items;
+            return [...state, ...action.order_items];
 
         case 'LOG_OUT':
             return []

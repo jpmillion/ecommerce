@@ -1,7 +1,8 @@
 const cartItemReducer = (state = [], action) => {
+    console.log(action)
     switch (action.type) {
         case 'LOG_IN':
-            return [...state, ...action.customer.attributes.cart_items]
+            return [...state, ...action.cart_items]
 
         case 'LOG_OUT':
             return [];

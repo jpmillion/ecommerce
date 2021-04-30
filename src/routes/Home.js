@@ -7,6 +7,7 @@ import Navigation from '../Navigation';
 export class Home extends PureComponent {
 
     logOut = () => {
+        sessionStorage.clear();
         this.props.dispatch({type: 'LOG_OUT'})
     }
 

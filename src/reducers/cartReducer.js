@@ -1,11 +1,7 @@
 const cartReducer = (state = {}, action) => {
     switch (action.type) {
         case 'LOG_IN':
-            return {
-                ...state,
-                total: action.customer.attributes.cart.total,
-                id: action.customer.attributes.cart.id
-            };
+            return { ...state, ...action.cart };
 
         case 'LOG_OUT':
             return {};
@@ -33,6 +29,10 @@ const cartReducer = (state = {}, action) => {
                 ...state,
                 total: 0
             }
+
+        case 'REGISTER':
+            return action.cart
+
         default:
             return state;
     }
