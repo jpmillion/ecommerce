@@ -14,7 +14,7 @@ export const fetchCustomer = (email, password) => {
         })
         .then(resp => resp.json())
         .then(j => logIn(j, dispatch)) // logIn this file line 53
-        .catch(e => window.alert(e.messages))
+        .catch(e => window.alert(e.errors))
     }
 }
 
@@ -34,6 +34,7 @@ export const register = (email, password_digest, first_name) => {
         })
         .then(resp => resp.json())
         .then(json => {
+            if (json.errors) return window.alert(json.errors)
             sessionStorage.setItem('token', json.token)
             dispatch({
                 type: 'REGISTER', 
@@ -57,6 +58,7 @@ export const authenticate = () => {
 
 const logIn = (j, dispatch) => {
     if (!sessionStorage.getItem('token')) sessionStorage.setItem('token', j.token);
+    if (j.errors) return window.alert(j.errors)
     const { logIn } = j;
     const { id } = j.customer.data
     const { first_name, last_name, email, cart, cart_items, orders, order_items } = j.customer.data.attributes
