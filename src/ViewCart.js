@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { deleteCartItem } from './actions/deleteCartItem';
 import { updateCartItemQuantity } from './actions/updateCartItemQuantity';
 import { createOrderAndItems, emptyCart } from './actions/makePurchase';
+import { NavLink } from 'react-router-dom';
 
 
 class ViewCart extends PureComponent {
@@ -15,12 +16,12 @@ class ViewCart extends PureComponent {
     }
 
     items = () => this.props.cartItems.map(item => (
-        <div key={item.id}>
+        <div className='col-sm-4 text-center bg-secondary' style={{margin: '20px'}} key={item.id}>
             <p>{item.title}</p>
-            <img src={item.image} alt={item.title}></img>
-            <p>{item.description}</p>
-            <p>{item.price} <Button onClick={e => this.props.deleteCartItem(this.props.cart.id, item.id)}>Remove Item</Button>
-            <ListGroup horizontal >
+            <img src={item.image} alt={item.title} className='rounded mx-auto d-block' style={{margin: '5px'}} height='75px' width='75px' ></img>
+            {/* <p>{item.description}</p> */}
+            <p>{this.currency.format(item.price)} <Button onClick={e => this.props.deleteCartItem(this.props.cart.id, item.id)} style={{margin: '5px'}}>Remove Item</Button>
+            <ListGroup horizontal className='justify-content-center' style={{margin: '5px'}} >
                 <ListGroup.Item >
                     Quantitiy
                 </ListGroup.Item>
@@ -46,9 +47,14 @@ class ViewCart extends PureComponent {
     render() {
         return (
             <div>
-                <h1>{this.props.customer.first_name}'s Cart</h1>
-                <h2>Total {this.currency.format(this.props.cart.total)} <Button onClick={this.makePurchase}>Purchase</Button></h2>
-                {this.items()}
+                <NavLink to='/'>Home</NavLink>
+                <div className='row justify-content-center'>
+                    {this.items()}
+                </div>
+                <div className='bg-light' style={{position: 'fixed', top: '0', right: '0', padding: '10px'}}>
+                    <h1>{this.props.customer.first_name}'s Cart</h1>
+                    <h2>Total {this.currency.format(this.props.cart.total)} <Button onClick={this.makePurchase}>Purchase</Button></h2>
+                </div>                
             </div>
         )
     }

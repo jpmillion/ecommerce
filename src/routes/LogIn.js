@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { fetchCustomer, register } from '../actions/fetchCustomer';
 import { Redirect } from 'react-router-dom';
-//import LogInForm from '../forms/LogInForm';
 
 class LogIn extends PureComponent {
 

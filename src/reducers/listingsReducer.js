@@ -4,7 +4,8 @@ const listingsReducer = (state = [] , action) => {
         return [...state]
 
       case 'ADD_LISTINGS':
-        return [...state, ...action.listings]
+        const listings = action.listings.filter(listing => listing.state === 'active');
+        return [...state, ...listings]
 
       default:
         return state;

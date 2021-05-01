@@ -26,7 +26,7 @@ class App extends Component {
     
     return (
       <div> 
-        <h1 className='jumbo text-center text-secondary'>Ecommerce</h1> 
+        <h1 className='jumbo text-center text-info'>Ecommerce</h1> 
         <Router>
           <Switch>
             <Route path='/trendingListings' component={TrendingListingsContainer} />
