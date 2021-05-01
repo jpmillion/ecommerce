@@ -38,7 +38,8 @@ export const register = (email, password_digest, first_name) => {
             dispatch({
                 type: 'REGISTER', 
                 customer: { id: json.customer.data.id, ...json.customer.data.attributes }, 
-                cart: { id: json.customer.included[0].id, ...json.customer.included[0].attributes }
+                cart: { id: json.customer.included[0].id, ...json.customer.included[0].attributes },
+                logIn: json.logIn
             })
         })
         .catch(e => window.alert(e.errors))
@@ -55,7 +56,8 @@ export const authenticate = () => {
 }
 
 const logIn = (j, dispatch) => {
-    if (!sessionStorage.token) sessionStorage.setItem('token', j.token);
+    if (!sessionStorage.getItem('token')) sessionStorage.setItem('token', j.token);
+    const { logIn } = j;
     const { id } = j.customer.data
     const { first_name, last_name, email, cart, cart_items, orders, order_items } = j.customer.data.attributes
     dispatch({
@@ -64,6 +66,7 @@ const logIn = (j, dispatch) => {
         cart,
         cart_items,
         orders,
-        order_items
+        order_items,
+        logIn
     })
 }

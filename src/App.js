@@ -8,7 +8,7 @@ import Home from './routes/Home';
 import LogIn from './routes/LogIn';
 import TrendingListingsContainer from './TrendingListingsContainer';
 import ViewCart from './ViewCart';
-import RegisterForm from './customer/RegisterForm';
+//import RegisterForm from './customer/RegisterForm';
 import { authenticate } from './actions/fetchCustomer';
 import { connect } from 'react-redux';
 import { fetchTrendingListings, fetchActiveListings, fetchInterestingListings } from './actions/fetchListings';
@@ -17,7 +17,7 @@ import InterestingListingsContainer from './InterestingListingsContainer';
 class App extends Component {
 
   componentDidMount() {
-    if (sessionStorage.token) this.props.authenticate();
+    if (sessionStorage.getItem('token')) this.props.authenticate();
     !this.props.listings.length && this.props.fetchActiveListings();
     !this.props.trendingListings.length && this.props.fetchTrendingListings();
     !this.props.interestingListings.length && this.props.fetchInterestingListings();
@@ -35,7 +35,7 @@ class App extends Component {
             <Route path='/listings' component={ListingsContainer}/>
             <Route path='/cart' component={ViewCart}/>
             <Route path='/login' component={LogIn}/>
-            <Route path='/register' component={RegisterForm}/>
+            <Route path='/register' component={LogIn}/>
             <Route path='/' component={Home}/>
           </Switch>
         </Router>

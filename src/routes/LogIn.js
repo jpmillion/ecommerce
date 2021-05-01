@@ -1,14 +1,19 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { fetchCustomer } from '../actions/fetchCustomer';
+import { fetchCustomer, register } from '../actions/fetchCustomer';
 import { Redirect } from 'react-router-dom';
-import LogInForm from '../forms/LogInForm';
+//import LogInForm from '../forms/LogInForm';
 
 class LogIn extends PureComponent {
 
     state = {
         email: '',
-        password: ''
+        password: '',
+        firstName: ''
+    }
+
+    get route() {
+        return this.props.match.url
     }
 
     handleChange = e => {
@@ -19,19 +24,26 @@ class LogIn extends PureComponent {
 
     handleSubmit = e => {
         e.preventDefault();
-        this.props.fetchCustomer(this.state.email, this.state.password);
+        this.route === '/login' ? this.props.fetchCustomer(this.state.email, this.state.password) : this.props.register(this.state.email, this.state.password, this.state.firstName);
         this.setState({
             email: '',
-            password: ''
+            password: '',
+            firstName: ''
         })
     }
 
     redirectOnLogIn = () => {
-        if (this.props.loggedIn) {
-            return <Redirect to='/'/>
-        }
+        if (this.props.loggedIn) return <Redirect to='/'/>
+        
+        const firstNameInput = this.route === '/register' ? <input onChange={this.handleChange} placeholder='First Name' type='text' name='firstName' value={this.state.firstName} /> : ''
+        
         return (
-            <LogInForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} email={this.state.email} password={this.state.password} />
+            <form className='text-center' onSubmit={this.handleSubmit}>
+                {firstNameInput}<br></br> 
+                <input onChange={this.handleChange} placeholder='Email' type='text' name='email' value={this.state.email} /><br></br> 
+                <input onChange={this.handleChange} placeholder='Password' type='password' name='password' value={this.state.password} /><br></br>
+                <input type='submit' value='submit'/> 
+            </form>
         )
     }
 
@@ -48,4 +60,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchCustomer })(LogIn)
+export default connect(mapStateToProps, { fetchCustomer, register })(LogIn)
