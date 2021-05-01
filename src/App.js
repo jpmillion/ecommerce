@@ -11,15 +11,16 @@ import ViewCart from './ViewCart';
 import RegisterForm from './customer/RegisterForm';
 import { authenticate } from './actions/fetchCustomer';
 import { connect } from 'react-redux';
-import { fetchTrendingListings } from './actions/fetchTrendingListings';
-import { fetchListings } from './actions/fetchListings';
+import { fetchTrendingListings, fetchActiveListings, fetchInterestingListings } from './actions/fetchListings';
+import InterestingListingsContainer from './InterestingListingsContainer';
 
 class App extends Component {
 
   componentDidMount() {
     if (sessionStorage.token) this.props.authenticate();
-    !this.props.listings.length && this.props.fetchListings();
+    !this.props.listings.length && this.props.fetchActiveListings();
     !this.props.trendingListings.length && this.props.fetchTrendingListings();
+    !this.props.interestingListings.length && this.props.fetchInterestingListings();
   }
 
   render() {
@@ -30,6 +31,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path='/trendingListings' component={TrendingListingsContainer} />
+            <Route path='/interestingListings' component={InterestingListingsContainer} />
             <Route path='/listings' component={ListingsContainer}/>
             <Route path='/cart' component={ViewCart}/>
             <Route path='/login' component={LogIn}/>
@@ -46,11 +48,13 @@ const mapStateToProps = state => {
   return {
     listings: state.listings,
     trendingListings: state.trendingListings,
+    interestingListings: state.interestingListings
   }
 }
 
 export default connect(mapStateToProps, { 
   authenticate,
-  fetchListings,
-  fetchTrendingListings
+  fetchActiveListings,
+  fetchTrendingListings,
+  fetchInterestingListings
 })(App);

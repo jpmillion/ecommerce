@@ -21,7 +21,6 @@ const mapStateToProps = state => {
   return {
     trendingListings: state.trendingListings,
     loading: state.loading,
-    cartId: state.cart.id,
   }
 }
 
