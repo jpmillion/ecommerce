@@ -8,7 +8,6 @@ import Home from './routes/Home';
 import LogIn from './routes/LogIn';
 import TrendingListingsContainer from './TrendingListingsContainer';
 import ViewCart from './ViewCart';
-//import RegisterForm from './customer/RegisterForm';
 import { authenticate } from './actions/fetchCustomer';
 import { connect } from 'react-redux';
 import { fetchTrendingListings, fetchActiveListings, fetchInterestingListings } from './actions/fetchListings';
