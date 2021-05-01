@@ -11,8 +11,8 @@ const ListingsContainer = props => {
     return (
       <div>
         <NavLink to='/'>Home</NavLink>
-        {displayCart()}
         <Listings products={props.trendingListings} />
+        {displayCart()}
       </div>
     );
 }

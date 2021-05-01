@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Listings from './listingComponents/Presentational/Listings';
 import { NavLink } from 'react-router-dom';
+import { displayCart } from './helpers';
 
 const ListingsContainer = props => {
     
@@ -11,6 +12,7 @@ const ListingsContainer = props => {
       <div>
         <NavLink to='/'>Home</NavLink>
         <Listings products={props.listings}/>
+        {displayCart()}
       </div>
     );
 }

@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 
 const Listing = (props) => {
     return (
-      <div className='col-sm-3'>
+      <div className='col-sm-4'>
         <Card style={{ width: '18rem', height: '30rem', margin: '20px' }}>
           <Card.Img variant="top" src={props.MainImage.url_170x135} alt={props.title} />
           <Card.Body>

@@ -28,7 +28,7 @@ const Cart = props => {
     }
 
     return (
-        <Card style={{ width: '18rem', float: 'right' }}>
+        <Card style={{ width: '18rem', position: 'fixed', top: '0', right: '0', margin: '20px' }}>
           <Card.Body>
             <Card.Title>{props.firstName}'s Shopping Cart</Card.Title>
             {text()} 
