@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { connect } from 'react-redux';
-import { deleteCartItem } from './actions/deleteCartItem';
-import { updateCartItemQuantity } from './actions/updateCartItemQuantity';
-import { createOrderAndItems, emptyCart } from './actions/makePurchase';
+import { deleteCartItem } from '../actions/deleteCartItem';
+import { updateCartItemQuantity } from '../actions/updateCartItemQuantity';
+import { createOrderAndItems, emptyCart } from '../actions/makePurchase';
 import { NavLink } from 'react-router-dom';
 
 

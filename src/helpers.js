@@ -1,4 +1,4 @@
-import Cart from "./Cart"
+import Cart from "./customer/Cart"
 
 export const displayNumOfCartItems = cartItems => {
     return cartItems.reduce((t, {quantity}) => {return t + quantity}, 0)

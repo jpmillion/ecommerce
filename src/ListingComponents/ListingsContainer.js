@@ -1,11 +1,10 @@
-import './App.css';
 import React from 'react';
 import { connect } from 'react-redux';
-import Listings from './listingComponents/Presentational/Listings';
+import Listings from './Listings';
 import { NavLink } from 'react-router-dom';
-import { displayCart } from './helpers';
+import { displayCart } from '../helpers';
 
-const InterestingListingsContainer = props => {
+const ListingsContainer = props => {
     
     return (
       <div>
@@ -18,9 +17,9 @@ const InterestingListingsContainer = props => {
 
 const mapStateToProps = state => {
   return {
-    listings: state.interestingListings,
+    listings: state.listings,
     loading: state.loading
   }
 }
 
-export default connect(mapStateToProps)(InterestingListingsContainer);
+export default connect(mapStateToProps)(ListingsContainer);

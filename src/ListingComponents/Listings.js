@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCreateCartItem } from '../../actions/fetchCreateCartItem';
+import { fetchCreateCartItem } from '../actions/fetchCreateCartItem';
 import Listing from './Listing';
 
 const Listings = props => {

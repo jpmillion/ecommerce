@@ -1,10 +1,9 @@
-import './App.css';
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCreateCartItem } from './actions/fetchCreateCartItem';
-import Listings from './listingComponents/Presentational/Listings';
+import { fetchCreateCartItem } from '../actions/fetchCreateCartItem';
+import Listings from './Listings';
 import { NavLink } from 'react-router-dom';
-import { displayCart } from './helpers';
+import { displayCart } from '../helpers';
 
 const ListingsContainer = props => {
     

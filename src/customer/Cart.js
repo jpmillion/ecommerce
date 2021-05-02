@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 import { NavLink } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
-import { displayNumOfCartItems } from './helpers';
+import { displayNumOfCartItems } from '../helpers';
 import { connect } from 'react-redux';
 
 const Cart = props => {

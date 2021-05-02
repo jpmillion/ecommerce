@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
 
-const Listing = (props) => {
+const Listing = props => {
 
   let history = useHistory();
 

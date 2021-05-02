@@ -3,15 +3,15 @@
 import './App.css';
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ListingsContainer from './ListingsContainer';
-import Home from './routes/Home';
-import LogIn from './routes/LogIn';
-import TrendingListingsContainer from './TrendingListingsContainer';
-import ViewCart from './ViewCart';
+import ListingsContainer from './listingComponents/ListingsContainer';
+import Home from './customer/Home';
+import LogIn from './customer/LogIn';
+import TrendingListingsContainer from './listingComponents/TrendingListingsContainer';
+import ViewCart from './customer/ViewCart';
 import { authenticate } from './actions/fetchCustomer';
 import { connect } from 'react-redux';
 import { fetchTrendingListings, fetchActiveListings, fetchInterestingListings } from './actions/fetchListings';
-import InterestingListingsContainer from './InterestingListingsContainer';
+import InterestingListingsContainer from './listingComponents/InterestingListingsContainer';
 
 class App extends Component {
 
