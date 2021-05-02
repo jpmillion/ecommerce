@@ -1,6 +1,6 @@
 
 
-export const fetchCustomer = (email, password) => {
+export const fetchCustomer = (email, password_digest) => {
     return dispatch => {
         fetch('http://localhost:3001/api/v1/sessions', {
             method: 'post',
@@ -9,7 +9,7 @@ export const fetchCustomer = (email, password) => {
             },
             body: JSON.stringify({
                 email,
-                password
+                password_digest
             })
         })
         .then(resp => resp.json())
