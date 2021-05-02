@@ -7,16 +7,18 @@ import cartItemsReducer from './cartItemsReducer';
 import trendingListingsReducer from "./trendingListingsReducer";
 import ordersReducer from "./ordersReducer";
 import orderItemsReducer from "./orderItemsReducer";
+import interestingListingsReducer from "./interestingListingsReducer";
 
 const rootReducer = combineReducers({
     logIn: logInReducer,
     customer: customerReducer,
-    listings: listingsReducer,
     cart: cartReducer,
     cartItems: cartItemsReducer,
-    trendingListings: trendingListingsReducer,
     orders: ordersReducer,
-    orderItems: orderItemsReducer
+    orderItems: orderItemsReducer,
+    listings: listingsReducer,
+    trendingListings: trendingListingsReducer,
+    interestingListings: interestingListingsReducer
 })
 
 export default rootReducer;

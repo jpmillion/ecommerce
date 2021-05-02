@@ -1,5 +1,4 @@
 const cartItemReducer = (state = [], action) => {
-    console.log(action)
     switch (action.type) {
         case 'LOG_IN':
             return [...state, ...action.cart_items]

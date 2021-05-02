@@ -1,23 +1,38 @@
 import React from 'react';
 import NavBar from 'react-bootstrap/NavBar';
-//import Button from 'react-bootstrap/Button';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const Navigation = props => {
-    if (props.loggedIn) {
+
+    const logOut = () => {
+        sessionStorage.clear();
+        props.dispatch({type: 'LOG_OUT'})
+    }
+
+    if (props.logIn) {
         return (
-            <NavBar>
-                <NavLink to='/' onClick={props.logOut}>Log Out</NavLink>
+            <NavBar className='bg-secondary justify-content-center' style={{padding: '10px', fontSize: '2em'}} >
+                <NavLink to='/' onClick={logOut} className='text-light'>Log Out</NavLink>
             </NavBar>
         )
     }
     return (
-        <NavBar variant='dark'> 
-            <NavLink to='/listings'>Listings</NavLink>
-            <NavLink to='/login'>Log In</NavLink>
-            <NavLink to='/register'>Register</NavLink>
-        </NavBar>
+        <div className='row bg-secondary text-center' style={{padding: '10px', fontSize: '2em'}}> 
+            <div className="col-sm-4"></div>
+            <div className="col-sm-2"><NavLink className='text-light' to='/login'>Log In</NavLink></div>
+            <div className="col-sm-2"><NavLink className='text-light' to='/register'>Register</NavLink></div>
+            <div className="col-sm-4"></div>
+        </div>
     )
 }
 
-export default Navigation
+const mapStateToProps = state => {
+    return {
+        logIn: state.logIn
+    }
+}
+
+export default connect(mapStateToProps)(Navigation)
+
+
