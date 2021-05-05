@@ -7,8 +7,10 @@ const OrdersContainer = props => {
     const orders = props.orders.map(order => <Order key={order.id} {...order} />)
 
     return (
-        <div>
-            {orders}
+        <div className='row justify-content-center'>
+            <div className='col-sm-3 text-center' >
+                {orders}
+            </div>
         </div>
     )
 }
