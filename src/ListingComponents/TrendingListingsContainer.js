@@ -5,7 +5,7 @@ import Listings from './Listings';
 import { NavLink } from 'react-router-dom';
 import { displayCart } from '../helpers';
 
-const ListingsContainer = props => {
+const TrendingListingsContainer = props => {
     
     return (
       <div>
@@ -23,4 +23,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { fetchCreateCartItem })(ListingsContainer);
+export default connect(mapStateToProps, { fetchCreateCartItem })(TrendingListingsContainer);
