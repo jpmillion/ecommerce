@@ -11,7 +11,9 @@ import { NavLink } from 'react-router-dom';
 class ViewCart extends PureComponent {
 
     makePurchase = () => {
+        console.log('a')
         this.props.createOrderAndItems(this.props.customer.id, this.props.cart, this.props.cartItems);
+        console.log('g')
         this.props.emptyCart(this.props.cart.id)
     }
 
