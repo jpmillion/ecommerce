@@ -12,6 +12,7 @@ import { authenticate } from './actions/fetchCustomer';
 import { connect } from 'react-redux';
 import { fetchTrendingListings, fetchActiveListings, fetchInterestingListings } from './actions/fetchListings';
 import InterestingListingsContainer from './listingComponents/InterestingListingsContainer';
+import OrdersContainer from './customer/OrdersContainer';
 
 class App extends Component {
 
@@ -35,6 +36,7 @@ class App extends Component {
             <Route path='/cart' component={ViewCart}/>
             <Route path='/login' component={LogIn}/>
             <Route path='/register' component={LogIn}/>
+            <Route path='/orders/history' component={OrdersContainer}/>
             <Route path='/' component={Home}/>
           </Switch>
         </Router>
