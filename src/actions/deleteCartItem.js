@@ -1,6 +1,6 @@
 export const deleteCartItem = (cartId, cartItemId) => {
     return dispatch => {
-        fetch(`http://localhost:3001/api/v1/carts/${cartId}/cart_items/${cartItemId}`, {
+        fetch(`https://rocky-gorge-45567.herokuapp.com/api/v1/carts/${cartId}/cart_items/${cartItemId}`, {
             method: 'delete',
             headers: {
                 'Content-Type': 'application/json'

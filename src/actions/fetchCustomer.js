@@ -2,7 +2,7 @@
 
 export const fetchCustomer = (email, password_digest) => {
     return dispatch => {
-        fetch('http://localhost:3001/api/v1/sessions', {
+        fetch('https://rocky-gorge-45567.herokuapp.com/api/v1/sessions', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ export const fetchCustomer = (email, password_digest) => {
 export const register = (email, password_digest, first_name) => {
 
     return dispatch => {
-        fetch('http://localhost:3001/api/v1/customers', {
+        fetch('https://rocky-gorge-45567.herokuapp.com/api/v1/customers', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ export const register = (email, password_digest, first_name) => {
 
 export const authenticate = () => {
     return dispatch => {
-        fetch('http://localhost:3001/api/v1/customers/authenticate', { headers: { ...sessionStorage } })
+        fetch('https://rocky-gorge-45567.herokuapp.com/api/v1/customers/authenticate', { headers: { ...sessionStorage } })
         .then(r => r.json())
         .then(j => logIn(j, dispatch)) // logIn this file line 53
         .catch(e => window.alert(e))
