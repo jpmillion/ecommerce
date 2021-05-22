@@ -1,6 +1,7 @@
 
 //import logo from './logo.svg';
 import './App.css';
+import Jumbotron from 'react-bootstrap/Jumbotron'
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ListingsContainer from './listingComponents/ListingsContainer';
@@ -27,9 +28,9 @@ class App extends Component {
     
     return (
       <div>
-        <div className='row'> 
-          <h1 className='jumbo text-center text-info col-sm'>Ecommerce</h1>
-        </div> 
+        <Jumbotron fluid className='bg-dark'>
+          <p className='jumbo text-center text-info'>Ecommerce</p>
+        </Jumbotron> 
         <Router>
           <Switch>
             <Route path='/trendingListings' component={TrendingListingsContainer} />
