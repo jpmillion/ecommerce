@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { fetchCustomer, register } from '../actions/fetchCustomer';
 import { Redirect } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class LogIn extends PureComponent {
 
@@ -37,11 +38,11 @@ class LogIn extends PureComponent {
         const firstNameInput = this.route === '/register' ? <input onChange={this.handleChange} placeholder='First Name' type='text' name='firstName' value={this.state.firstName} /> : ''
         
         return (
-            <form className='text-center' onSubmit={this.handleSubmit}>
+            <form className='text-center text-light' onSubmit={this.handleSubmit}>
                 {firstNameInput}<br></br> 
                 <input onChange={this.handleChange} placeholder='Email' type='text' name='email' value={this.state.email} /><br></br> 
-                <input onChange={this.handleChange} placeholder='Password' type='password' name='password' value={this.state.password} /><br></br>
-                <input type='submit' value='submit'/> 
+                <input onChange={this.handleChange} placeholder='Password' type='password' name='password' value={this.state.password} /><br></br><br></br>
+                <input type='submit' value='submit'/><br></br>or<br></br> <NavLink to='/' >Go Back</NavLink>
             </form>
         )
     }
