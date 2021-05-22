@@ -40,13 +40,27 @@
 .jumbo {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 7em;
-  padding: 25px;
+  padding: auto;
   text-shadow: 4px 4px black;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 568px) {
+  .jumbo {
+    max-width: 100%;
+    font-size: 6em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .jumbo {
+    max-width: 100%;
+    font-size: 5em;
+  }
+}
+
+@media only screen and (max-width: 440px) {
   .jumbo {
     max-width: fit-content;
-    font-size: 5em;
+    font-size: 4em;
   }
 }
