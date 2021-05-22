@@ -44,14 +44,7 @@
   text-shadow: 4px 4px black;
 }
 
-@media only screen and (max-width: 568px) {
-  .jumbo {
-    max-width: 100%;
-    font-size: 6em;
-  }
-}
-
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 725px) {
   .jumbo {
     max-width: 100%;
     font-size: 5em;
