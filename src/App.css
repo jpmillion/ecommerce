@@ -60,7 +60,7 @@
 
 @media only screen and (max-width: 440px) {
   .jumbo {
-    max-width: fit-content;
-    font-size: 4em;
+    max-width: 100%;
+    font-size: 2.5em;
   }
 }
