@@ -40,7 +40,7 @@ class App extends Component {
             <Route path='/login' component={LogIn}/>
             <Route path='/register' component={LogIn}/>
             <Route path='/orders/history' component={OrdersContainer}/>
-            <Route path='/' component={Home}/>
+            <Route path='/ecommerce' component={Home}/>
           </Switch>
         </Router>
       </div>

@@ -13,7 +13,7 @@ const Navigation = props => {
     if (props.logIn) {
         return (
             <NavBar className='bg-secondary justify-content-center' style={{padding: '10px', fontSize: '2em'}} >
-                <NavLink to='/' onClick={logOut} className='text-light'>Log Out</NavLink>
+                <NavLink to='/ecommerce' onClick={logOut} className='text-light'>Log Out</NavLink>
             </NavBar>
         )
     }

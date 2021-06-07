@@ -33,7 +33,7 @@ class LogIn extends PureComponent {
     }
 
     redirectOnLogIn = () => {
-        if (this.props.loggedIn) return <Redirect to='/'/>
+        if (this.props.loggedIn) return <Redirect to='/ecommerce'/>
         
         const firstNameInput = this.route === '/register' ? <input onChange={this.handleChange} placeholder='First Name' type='text' name='firstName' value={this.state.firstName} /> : ''
         
@@ -42,7 +42,7 @@ class LogIn extends PureComponent {
                 {firstNameInput}<br></br> 
                 <input onChange={this.handleChange} placeholder='Email' type='text' name='email' value={this.state.email} /><br></br> 
                 <input onChange={this.handleChange} placeholder='Password' type='password' name='password' value={this.state.password} /><br></br><br></br>
-                <input type='submit' value='submit'/><br></br>or<br></br> <NavLink to='/' >Go Back</NavLink>
+                <input type='submit' value='submit'/><br></br>or<br></br> <NavLink to='/ecommerce' >Go Back</NavLink>
             </form>
         )
     }

@@ -8,7 +8,7 @@ const InterestingListingsContainer = props => {
     
     return (
       <div>
-        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/ecommerce'>Home</NavLink>
         <Listings products={props.listings}/>
         {displayCart()}
       </div>

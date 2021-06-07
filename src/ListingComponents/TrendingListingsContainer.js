@@ -9,7 +9,7 @@ const TrendingListingsContainer = props => {
     
     return (
       <div>
-        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/ecommerce'>Home</NavLink>
         <Listings products={props.trendingListings} />
         {displayCart()}
       </div>

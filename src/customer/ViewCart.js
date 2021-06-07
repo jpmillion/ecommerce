@@ -49,7 +49,7 @@ class ViewCart extends PureComponent {
     render() {
         return (
             <div>
-                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/ecommerce'>Home</NavLink>
                 <div className='row justify-content-center'>
                     {this.items()}
                 </div>

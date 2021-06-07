@@ -18,7 +18,7 @@ const ListingsContainer = props => {
 
     return (
       <div>
-        <NavLink to='/'>Home</NavLink><br></br>
+        <NavLink to='/ecommerce'>Home</NavLink><br></br>
         <input type='text' onChange={(e) => handleChange(e)} name='text'></input>
         {/* <Listings products={props.listings}/> */}
         <Listings products={filteredListings} />
