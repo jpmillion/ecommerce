@@ -8,23 +8,22 @@ const ListingsContainer = props => {
 
   const [text, setText] = useState('');
 
+  const words = text.split(' ');
 
-    const handleChange = (e) => {
-      setText(e.target.value);
-    }
+  const handleChange = (e) => {
+    setText(e.target.value.toLowerCase());
+  }
+  
+  const filteredListings = props.listings.filter(listing => words.every(word => listing.title.toLowerCase().includes(word)));
 
-    const filteredListings = props.listings.filter(listing => listing.title.includes(text));
-
-
-    return (
-      <div>
-        <NavLink to='/ecommerce'>Home</NavLink><br></br>
-        <input type='text' onChange={(e) => handleChange(e)} name='text'></input>
-        {/* <Listings products={props.listings}/> */}
-        <Listings products={filteredListings} />
-        {displayCart()}
-      </div>
-    );
+  return (
+    <div>
+      <NavLink to='/ecommerce'>Home</NavLink><br></br>
+      <input type='text' onChange={(e) => handleChange(e)} name='text'></input>
+      <Listings products={filteredListings} />
+      {displayCart()}
+    </div>
+  );
 }
 
 const mapStateToProps = state => {
