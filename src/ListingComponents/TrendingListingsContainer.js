@@ -1,18 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCreateCartItem } from '../actions/fetchCreateCartItem';
-import Listings from './Listings';
-import { NavLink } from 'react-router-dom';
-import { displayCart } from '../helpers';
+import FilteredListings from './FilteredListings';
 
 const TrendingListingsContainer = props => {
     
     return (
-      <div>
-        <NavLink to='/ecommerce'>Home</NavLink>
-        <Listings products={props.trendingListings} />
-        {displayCart()}
-      </div>
+      <FilteredListings filteredListings={props.trendingListings} />
     );
 }
 
@@ -23,4 +16,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { fetchCreateCartItem })(TrendingListingsContainer);
+export default connect(mapStateToProps)(TrendingListingsContainer);
