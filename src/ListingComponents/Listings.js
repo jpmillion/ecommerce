@@ -7,7 +7,7 @@ const Listings = props => {
 
     const listings = props.products.map((product) => (<Listing key={product.listing_id} { ...product } addToCart={props.fetchCreateCartItem} cartId={props.cartId}/>))
     return (
-        <div className='row'>
+        <div className='row' style={{margin: 'auto'}}>
             {listings}
         </div>
     )

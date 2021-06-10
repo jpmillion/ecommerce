@@ -16,8 +16,8 @@ const Listing = props => {
   }
 
   return (
-    <div className='col-sm-4 text-center'>
-      <Card style={{ width: '18rem', height: '30rem', margin: '20px' }}>
+    <div className='col-sm text-center'>
+      <Card style={{ width: '18rem', height: '30rem', margin: 'auto', marginTop: '15px' }}>
         <Card.Img variant="top" src={props.MainImage.url_170x135} alt={props.title} />
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
