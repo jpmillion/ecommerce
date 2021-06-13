@@ -19,7 +19,7 @@ class ViewCart extends PureComponent {
         <div className='col-sm-4 text-center bg-secondary' style={{margin: '20px'}} key={item.id}>
             <p>{item.title}</p>
             <img src={item.image} alt={item.title} className='rounded mx-auto d-block' style={{margin: '5px'}} height='75px' width='75px' ></img>
-            <p>{this.currency.format(item.price)} <Button onClick={e => this.props.deleteCartItem(this.props.cart.id, item.id)} style={{margin: '5px'}}>Remove Item</Button>
+            <p>{this.currency.format(item.price)} <Button onClick={e => this.props.deleteCartItem(this.props.cart.id, item.id)} style={{margin: '5px'}}>Remove Item</Button></p>
             <ListGroup horizontal className='justify-content-center' style={{margin: '5px'}} >
                 <ListGroup.Item >
                     Quantitiy
@@ -34,7 +34,6 @@ class ViewCart extends PureComponent {
                     -
                 </ListGroup.Item>
             </ListGroup>
-            </p>
         </div>
     ))
 
