@@ -1,6 +1,8 @@
+import ecommerceEndPoint from "./ecommercEndPoint";
+
 export const createOrderAndItems = (customerId, cart, cartItems) => {
     return dispatch => {
-        fetch(`https://rocky-gorge-45567.herokuapp.com/api/v1/customers/${customerId}/orders`, {
+        fetch(`${ecommerceEndPoint}/customers/${customerId}/orders`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -17,7 +19,7 @@ export const createOrderAndItems = (customerId, cart, cartItems) => {
 
 export const emptyCart = (cartId) => {
     return dispatch => {
-        fetch(`https://rocky-gorge-45567.herokuapp.com/api/v1/carts/${cartId}`, {
+        fetch(`${ecommerceEndPoint}/carts/${cartId}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

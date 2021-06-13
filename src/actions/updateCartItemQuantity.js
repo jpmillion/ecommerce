@@ -1,6 +1,8 @@
+import ecommerceEndPoint from "./ecommercEndPoint";
+
 export const updateCartItemQuantity = (cartId, cartItemId, quantity) => {
     return dispatch => {
-        fetch(`https://rocky-gorge-45567.herokuapp.com/api/v1/carts/${cartId}/cart_items/${cartItemId}`, {
+        fetch(`${ecommerceEndPoint}/carts/${cartId}/cart_items/${cartItemId}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

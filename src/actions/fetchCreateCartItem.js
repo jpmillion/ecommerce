@@ -1,6 +1,8 @@
+import ecommerceEndPoint from "./ecommercEndPoint";
+
 export const fetchCreateCartItem = (cartId, quantity, price, title, description, image) => {
     return dispatch => {
-        fetch(`https://rocky-gorge-45567.herokuapp.com/api/v1/carts/${cartId}/cart_items`, {
+        fetch(`${ecommerceEndPoint}/carts/${cartId}/cart_items`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'

@@ -1,6 +1,8 @@
+import ecommerceEndPoint from "./ecommercEndPoint";
+
 export const deleteCartItem = (cartId, cartItemId) => {
     return dispatch => {
-        fetch(`https://rocky-gorge-45567.herokuapp.com/api/v1/carts/${cartId}/cart_items/${cartItemId}`, {
+        fetch(`${ecommerceEndPoint}/carts/${cartId}/cart_items/${cartItemId}`, {
             method: 'delete',
             headers: {
                 'Content-Type': 'application/json'
