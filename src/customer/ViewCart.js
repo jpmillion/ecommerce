@@ -46,7 +46,7 @@ class ViewCart extends PureComponent {
     render() {
         return (
             <div>
-                <NavLink to='/ecommerce'>Home</NavLink>
+                <NavLink to='/ecommerce'className='text-light' >Home</NavLink>
                 <div className='row justify-content-center'>
                     {this.props.cartItems.length ? this.items() : <h2 className='text-light'>Your Cart Is Currently Empty</h2>}
                 </div>

@@ -12,7 +12,7 @@ const SearchListingCard = props => {
             <Card.Text>
                 
             </Card.Text>
-            <NavLink to={props.route} >Search {props.title}</NavLink>
+            <NavLink to={props.route} className='text-light' >Search {props.title}</NavLink>
           </Card.Body>
         </Card>
     )

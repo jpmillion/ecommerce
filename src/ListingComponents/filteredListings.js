@@ -17,8 +17,8 @@ const FilteredListings = props => {
   
     return (
       <div>
-        <NavLink to='/ecommerce'>Home</NavLink><br></br>
-        <div className='text-center'><input type='text' onChange={(e) => handleChange(e)} name='text' placeholder='Search Listings'></input></div>
+        <NavLink to='/ecommerce' className='text-light'>Home</NavLink><br></br>
+        <div className='text-center'><input type='text' onChange={(e) => handleChange(e)} name='text' placeholder='Search Listings' style={{ width: '50%', margin: '10px' }}></input></div>
         <Listings products={filteredListings} />
         {displayCart()}
       </div>
