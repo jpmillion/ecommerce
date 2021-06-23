@@ -12,7 +12,7 @@ const Listing = props => {
       window.alert('MUST BE LOGGED IN TO ADD ITEM TO CART')
       return history.push('/login')
     }
-    props.addToCart(props.cartId, 1, props.price, props.title, props.description, props.MainImage.url_75x75)
+    props.addToCart({...props, quanity: 1})
   }
 
   return (
