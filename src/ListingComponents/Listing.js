@@ -12,7 +12,7 @@ const Listing = props => {
       window.alert('MUST BE LOGGED IN TO ADD ITEM TO CART')
       return history.push('/login')
     }
-    props.addToCart({...props, quanity: 1})
+    props.addToCart({...props, quantity: 1})
   }
 
   return (

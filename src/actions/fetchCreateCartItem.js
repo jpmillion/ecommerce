@@ -1,13 +1,14 @@
 import ecommerceEndPoint from "./ecommercEndPoint";
 
 export const fetchCreateCartItem = (cartItemData) => {
+    const image = cartItemData.MainImage.url_75x75;
     return dispatch => {
         fetch(`${ecommerceEndPoint}/carts/${cartItemData.cartId}/cart_items`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ ...cartItemData })
+            body: JSON.stringify({ ...cartItemData, image })
         })
         .then(resp => resp.json())
         .then(json => dispatch({
