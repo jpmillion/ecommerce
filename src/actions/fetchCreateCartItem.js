@@ -1,19 +1,13 @@
 import ecommerceEndPoint from "./ecommercEndPoint";
 
-export const fetchCreateCartItem = (cartId, quantity, price, title, description, image) => {
+export const fetchCreateCartItem = (cartItemData) => {
     return dispatch => {
-        fetch(`${ecommerceEndPoint}/carts/${cartId}/cart_items`, {
+        fetch(`${ecommerceEndPoint}/carts/${cartItemData.cartId}/cart_items`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                quantity,
-                price,
-                title, 
-                description,
-                image
-            })
+            body: JSON.stringify({ ...cartItemData })
         })
         .then(resp => resp.json())
         .then(json => dispatch({
@@ -25,3 +19,4 @@ export const fetchCreateCartItem = (cartId, quantity, price, title, description,
         .catch(e => window.alert(e.messages))
     }
 }
+
